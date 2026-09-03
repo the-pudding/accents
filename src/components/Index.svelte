@@ -1,11 +1,20 @@
 <script>
 	import { getContext } from "svelte";
-	import Footer from "$components/Footer.svelte";
+	import Level from "$components/Level.svelte";
 
-	// const copy = getContext("copy");
-	// const data = getContext("data");
+	const copy = getContext("copy");
+
+	let levelI = $state(0);
+	let currentLevel = $derived(copy.levels[levelI]);
 </script>
 
-<svelte:boundary onerror={(e) => console.error(e)}>
-	<!-- <Footer recirc={true} /> -->
-</svelte:boundary>
+<article>
+	<Level bind:i={levelI} total={copy.levels.length} data={currentLevel} />
+</article>
+
+<style>
+	article {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+</style>

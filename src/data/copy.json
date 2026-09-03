@@ -1,23 +1,93 @@
 {
-	"meta": { "title": "Title TK", "description": "Description tk." },
-	"body": [
-		{
-			"section": "intro",
-			"content": [
-				{ "type": "h4", "value": "An h4 element with no attributes" },
-				{
-					"type": "text",
-					"value": "Some random text here, followed by an img tag."
-				},
-				{
-					"type": "img",
-					"value": { "src": "../assets/demo/test.jpg", "alt": "A cat" }
-				},
-				{
-					"type": "Test",
-					"value": { "label": "I’m a custom component!", "value": "50" }
-				}
-			]
-		}
-	]
+  "levels": [
+    {
+      "pre": [
+        {
+          "type": "text",
+          "value": "Let’s start with an easy one."
+        },
+        {
+          "type": "text",
+          "value": "Where do you think this speaker is from?"
+        }
+      ],
+      "speaker": "Oh, I’m going up to the lake for the long weekend, don’t ya know.",
+      "answer": {
+        "type": "state",
+        "value": "Minnesota"
+      },
+      "post": [
+        {
+          "type": "text",
+          "value": "The biggest tell is the way they say the vowel in “boat.”"
+        }
+      ],
+      "deepDive": [
+        {
+          "type": "text",
+          "value": "Tk deep dive"
+        }
+      ]
+    },
+    {
+      "pre": [
+        {
+          "type": "text",
+          "value": "Next one."
+        },
+        {
+          "type": "text",
+          "value": "Where do you think this speaker is from?"
+        }
+      ],
+      "speaker": "I don’t have the cot-caught merger!",
+      "answer": {
+        "type": "region",
+        "value": "Eastern US"
+      },
+      "post": [
+        {
+          "type": "text",
+          "value": "The biggest tell is the way they say cot and caught."
+        }
+      ],
+      "deepDive": [
+        {
+          "type": "text",
+          "value": "Tk deep dive"
+        }
+      ]
+    },
+    {
+      "pre": [
+        {
+          "type": "text",
+          "value": "Next one."
+        },
+        {
+          "type": "text",
+          "value": "Where do you think this speaker is from?"
+        }
+      ],
+      "speaker": "SoCal is the best, bruh.",
+      "answer": {
+        "type": "city",
+        "value": "Los Angeles",
+        "lat": "34.0522",
+        "lng": "-118.2437"
+      },
+      "post": [
+        {
+          "type": "text",
+          "value": "The biggest tell is the way they say _."
+        }
+      ],
+      "deepDive": [
+        {
+          "type": "text",
+          "value": "Tk deep dive"
+        }
+      ]
+    }
+  ]
 }

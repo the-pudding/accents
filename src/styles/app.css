@@ -19,7 +19,7 @@
 	--z-modal: 1000;
 
 	/* presets (used in reset.css) */
-	--font-body: var(--font-serif);
+	--font-body: var(--font-sans);
 	--font-form: var(--font-sans);
 
 	--radius-xs: 0.125rem;
