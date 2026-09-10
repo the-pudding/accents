@@ -1,5 +1,5 @@
 <script>
-	import { onMount, onDestroy } from "svelte";
+	import { onMount, onDestroy, tick } from "svelte";
 	import { browser } from "$app/environment";
 	import { geoCentroid, geoContains } from "d3";
 	import Button from "$components/ui/Button.svelte";
@@ -7,7 +7,7 @@
 	import usStates from "$data/us-states.json";
 	import usRegions from "$data/us-regions.json";
 
-	let { i, answer, onsubmit = () => {} } = $props();
+	let { i, answer, hints, onsubmit = () => {} } = $props();
 
 	const CENTER = [45, -100];
 	const INITIAL_ZOOM = 3;
@@ -29,6 +29,7 @@
 	let selected = $state(null);
 	let locked = $state(false);
 	let result = $state(null);
+	let hintIndex = $state(-1);
 
 	function resetRound() {
 		selected = null;
@@ -183,15 +184,36 @@
 		map?.remove();
 	});
 
+	// scrolls so the *bottom* of .actions lands at the top of the viewport,
+	// putting whatever comes next (the result) at the top of the page.
+	// scrollIntoView can't express this: block:"start" aligns the element's
+	// top edge, block:"end" aligns the viewport's bottom edge — neither is it.
+	async function scrollPastActions() {
+		// wait for Svelte to flush the DOM (new result/post content) before
+		// measuring, so we're not scrolling against a stale layout
+		await tick();
+		const actionsEl = document.querySelector(".actions");
+		if (!actionsEl) return;
+		const top = actionsEl.getBoundingClientRect().bottom + window.scrollY;
+		window.scrollTo({ top, behavior: "smooth" });
+	}
+
 	function handleSubmit() {
 		if (!selected) return;
+		// disabling the button that currently has focus can itself yank
+		// scroll position around in some browsers — clear focus first so
+		// that doesn't fight with our own smooth scroll below
+		document.activeElement?.blur();
 		locked = true;
 		const outcome = reveal(selected);
 		setGuess(i, { ...selected, ...outcome });
 		onsubmit(selected);
+
+		scrollPastActions();
 	}
 
 	function handleNoIdea() {
+		document.activeElement?.blur();
 		locked = true;
 		selected = null;
 		if (marker) {
@@ -201,19 +223,39 @@
 		const outcome = reveal(null);
 		setGuess(i, { lat: null, lng: null, ...outcome });
 		onsubmit(null);
-	}
 
-	$inspect({ result });
+		scrollPastActions();
+	}
 </script>
 
 <p>Choose a location on the map:</p>
+
 <div class="map" bind:this={mapEl}></div>
+
+<div class="hints">
+	<span>Get a hint!</span>
+
+	{#each hints as { value }, i}
+		<button
+			class="hint"
+			disabled={i > hintIndex + 1}
+			onclick={() => (hintIndex = i)}>Hint #{i + 1}</button
+		>
+	{/each}
+
+	{#if hintIndex >= 0}
+		<div>{@html hints[hintIndex]}</div>
+	{/if}
+</div>
+
 <div class="actions">
-	<Button variant="secondary" disabled={locked} onclick={handleNoIdea}>
-		I truly have no idea
-	</Button>
 	<Button
-		variant="primary"
+		style={"background: var(--color-fg); color: var(--color-bg)"}
+		disabled={locked}
+		onclick={handleNoIdea}>I truly have no idea</Button
+	>
+	<Button
+		style={"background: #02D1FF; color: var(--color-bg)"}
 		disabled={locked || !selected}
 		onclick={handleSubmit}>Submit</Button
 	>
@@ -222,16 +264,17 @@
 {#if result}
 	<p class="result">
 		{#if result.correct}
-			Correct! It's {result.answer}.
+			Correct! It's <strong>{result.answer}</strong>.
 		{:else if result.miles && result.miles <= CLOSE_THRESHOLD}
-			Close! They're from {result.answer}, you were {Math.round(result.miles)} miles
-			away.
+			Close! They're from <strong>{result.answer}</strong>, you were {Math.round(
+				result.miles
+			)} miles away.
 		{:else if result.miles}
-			Nice try! They're from {result.answer}, you were {Math.round(
+			Nice try! They're from <strong>{result.answer}</strong>, you were {Math.round(
 				result.miles
 			)} miles away.
 		{:else}
-			The answer was {result.answer}.
+			The answer was <strong>{result.answer}</strong>.
 		{/if}
 	</p>
 {/if}
@@ -252,7 +295,6 @@
 
 	.result {
 		margin-top: 1rem;
-		font-weight: bold;
 	}
 
 	:global(.guess-arrow .arrow) {
@@ -261,5 +303,9 @@
 		border-left: 7px solid transparent;
 		border-right: 7px solid transparent;
 		border-bottom: 14px solid var(--color-primary);
+	}
+
+	button.hint {
+		text-decoration: underline;
 	}
 </style>
