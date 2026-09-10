@@ -1,18 +1,28 @@
-import{C as e,D as t,E as n,I as r,J as i,M as a,N as o,O as s,Q as c,S as l,T as u,U as d,W as f,X as p,Y as m,a as h,b as g,c as _,et as v,f as y,gt as b,h as x,ht as S,j as C,lt as w,mt as T,nt as E,o as ee,p as D,q as O,s as k,tt as te,u as A,ut as j,v as M,w as N,x as P,y as F}from"../chunks/Cimgqpqq.js";import{i as I}from"../chunks/Do_Fl4gw.js";import"../chunks/CT0T0Gak.js";import"../chunks/DnsWOCDb.js";import{t as L}from"../chunks/DbxqsBPC.js";var R={},z={},B=34,V=10,H=13;function U(e){return Function(`d`,`return {`+e.map(function(e,t){return JSON.stringify(e)+`: d[`+t+`] || ""`}).join(`,`)+`}`)}function W(e,t){var n=U(e);return function(r,i){return t(n(r),i,e)}}function G(e){var t=Object.create(null),n=[];return e.forEach(function(e){for(var r in e)r in t||n.push(t[r]=r)}),n}function K(e,t){var n=e+``,r=n.length;return r<t?Array(t-r+1).join(0)+n:n}function q(e){return e<0?`-`+K(-e,6):e>9999?`+`+K(e,6):K(e,4)}function J(e){var t=e.getUTCHours(),n=e.getUTCMinutes(),r=e.getUTCSeconds(),i=e.getUTCMilliseconds();return isNaN(e)?`Invalid Date`:q(e.getUTCFullYear(),4)+`-`+K(e.getUTCMonth()+1,2)+`-`+K(e.getUTCDate(),2)+(i?`T`+K(t,2)+`:`+K(n,2)+`:`+K(r,2)+`.`+K(i,3)+`Z`:r?`T`+K(t,2)+`:`+K(n,2)+`:`+K(r,2)+`Z`:n||t?`T`+K(t,2)+`:`+K(n,2)+`Z`:``)}function Y(e){var t=RegExp(`["`+e+`
+import{C as e,D as t,E as n,I as r,J as i,M as a,N as o,O as s,Q as c,S as l,T as u,U as d,W as f,X as p,Y as m,a as h,b as g,c as _,et as v,f as y,gt as b,h as x,ht as S,j as C,lt as w,mt as T,nt as E,o as ee,p as D,q as O,s as k,tt as te,u as A,ut as j,v as M,w as N,x as P,y as F}from"../chunks/Cimgqpqq.js";import{i as I}from"../chunks/HYI0sqi3.js";import"../chunks/CT0T0Gak.js";import"../chunks/DnsWOCDb.js";import{t as L}from"../chunks/CGg3p0Jp.js";var R={},z={},B=34,V=10,H=13;function U(e){return Function(`d`,`return {`+e.map(function(e,t){return JSON.stringify(e)+`: d[`+t+`] || ""`}).join(`,`)+`}`)}function W(e,t){var n=U(e);return function(r,i){return t(n(r),i,e)}}function G(e){var t=Object.create(null),n=[];return e.forEach(function(e){for(var r in e)r in t||n.push(t[r]=r)}),n}function K(e,t){var n=e+``,r=n.length;return r<t?Array(t-r+1).join(0)+n:n}function q(e){return e<0?`-`+K(-e,6):e>9999?`+`+K(e,6):K(e,4)}function J(e){var t=e.getUTCHours(),n=e.getUTCMinutes(),r=e.getUTCSeconds(),i=e.getUTCMilliseconds();return isNaN(e)?`Invalid Date`:q(e.getUTCFullYear(),4)+`-`+K(e.getUTCMonth()+1,2)+`-`+K(e.getUTCDate(),2)+(i?`T`+K(t,2)+`:`+K(n,2)+`:`+K(r,2)+`.`+K(i,3)+`Z`:r?`T`+K(t,2)+`:`+K(n,2)+`:`+K(r,2)+`Z`:n||t?`T`+K(t,2)+`:`+K(n,2)+`Z`:``)}function Y(e){var t=RegExp(`["`+e+`
 \r]`),n=e.charCodeAt(0);function r(e,t){var n,r,a=i(e,function(e,i){if(n)return n(e,i-1);r=e,n=t?W(e,t):U(e)});return a.columns=r||[],a}function i(e,t){var r=[],i=e.length,a=0,o=0,s,c=i<=0,l=!1;e.charCodeAt(i-1)===V&&--i,e.charCodeAt(i-1)===H&&--i;function u(){if(c)return z;if(l)return l=!1,R;var t,r=a,o;if(e.charCodeAt(r)===B){for(;a++<i&&e.charCodeAt(a)!==B||e.charCodeAt(++a)===B;);return(t=a)>=i?c=!0:(o=e.charCodeAt(a++))===V?l=!0:o===H&&(l=!0,e.charCodeAt(a)===V&&++a),e.slice(r+1,t-1).replace(/""/g,`"`)}for(;a<i;){if((o=e.charCodeAt(t=a++))===V)l=!0;else if(o===H)l=!0,e.charCodeAt(a)===V&&++a;else if(o!==n)continue;return e.slice(r,t)}return c=!0,e.slice(r,i)}for(;(s=u())!==z;){for(var d=[];s!==R&&s!==z;)d.push(s),s=u();t&&(d=t(d,o++))==null||r.push(d)}return r}function a(t,n){return t.map(function(t){return n.map(function(e){return u(t[e])}).join(e)})}function o(t,n){return n??=G(t),[n.map(u).join(e)].concat(a(t,n)).join(`
 `)}function s(e,t){return t??=G(e),a(e,t).join(`
 `)}function c(e){return e.map(l).join(`
 `)}function l(t){return t.map(u).join(e)}function u(e){return e==null?``:e instanceof Date?J(e):t.test(e+=``)?`"`+e.replace(/"/g,`""`)+`"`:e}return{parse:r,parseRows:i,format:o,formatBody:s,formatRows:c,formatRow:l,formatValue:u}}var X=Y(`,`),Z=X.parse;X.parseRows,X.format,X.formatBody,X.formatRows,X.formatRow,X.formatValue;var Q=s(`<section id="demo-link"><h2>Link</h2> <p><a href="elements">Default element styles demo</a></p> <p><a href="fonts">Pudding-hosted font previews</a></p> <p><a href="ui">BitsUI styled components</a></p></section>`);function ne(e){n(e,Q())}var re=s(`<section id="demo-image"><h2>Image</h2> <p>img tag</p> <img src="../assets/demo/test.jpg" alt="cat" class="svelte-b56t42"/> <p>background image</p> <div class="svelte-b56t42"></div></section>`);function ie(e){n(e,re())}var ae=s(`<section id="demo-element"><h2>Dynamic Svelte Element</h2> <!></section>`);function oe(a){let o=[{tag:`h3`,text:`I am a h3 tag.`},{tag:`p`,text:`I am p tag.`}];var s=ae();l(m(O(s),2),17,()=>o,e,(e,a)=>{let o=()=>r(a).tag,s=()=>r(a).text;var c=t();M(i(c),o,!1,(e,t)=>{var r=C();d(()=>u(r,s())),n(t,r)}),n(e,c)}),S(s),n(a,s)}var se=s(`<p> </p>`);function ce(e,t){var r=se(),i=O(r);S(r),d(()=>u(i,`I am component A and my favorite number is ${t.number??``}.`)),n(e,r)}var le=s(`<p> </p>`);function ue(e,t){var r=le(),i=O(r);S(r),d(()=>u(i,`I am component B and my name is ${t.name??``}.`)),n(e,r)}var de=s(`<section id="demo-component"><h2>Dynamic Svelte Component</h2> <!></section>`);function fe(a){let o={A:ce,B:ue},s=[{component:`A`,number:42},{component:`B`,name:`Russell`}];var c=de();l(m(O(c),2),17,()=>s,e,(e,a)=>{let s=E(()=>o[r(a).component]);var c=t();F(i(c),()=>r(s),(e,t)=>{t(e,k(()=>r(a)))}),n(e,c)}),S(c),n(a,c)}var pe=s(`<div><!></div>`);function me(e,t){j(t,!0);let r=h(t,`root`,3,null),i=h(t,`top`,3,0),a=h(t,`bottom`,3,0),o=h(t,`increments`,3,100),s=h(t,`value`,15,void 0),c=[],l=[],u=[],d=[],p;function m(){let e=0,t=0;for(let n=0;n<c.length;n++)c[n]>e&&(e=c[n],t=n);s(e>0?t:void 0)}function v(e,t){let n=e=>{e[0].isIntersecting,c[t]=e[0].intersectionRatio,m()},o=`${i()?i()*-1:0}px 0px ${a()?a()*-1:0}px 0px`,s={root:r(),rootMargin:o,threshold:l};d[t]&&d[t].disconnect();let u=new IntersectionObserver(n,s);u.observe(e),d[t]=u}function y(){u.length&&u.forEach(v)}f(()=>{for(let e=0;e<o()+1;e++)l.push(e/o());u=p.querySelectorAll(`:scope > *:not(iframe)`),y()}),f(()=>{i(),a(),y()});var x=pe();g(O(x),()=>t.children??b),S(x),_(x,e=>p=e,()=>p),n(e,x),w()}var he=s(`<div><p class="svelte-1sxgmm9"> </p></div>`),ge=s(`<section id="scrolly"><h2 class="svelte-1sxgmm9">Scrolly <span> </span></h2> <div class="spacer svelte-1sxgmm9"></div> <!> <div class="spacer svelte-1sxgmm9"></div></section>`);function _e(a){let o=v(void 0);var s=ge(),f=O(s),p=m(O(f)),h=O(p,!0);S(p),S(f),me(m(f,4),{get value(){return r(o)},set value(e){c(o,e,!0)},children:(a,s)=>{var c=t();l(i(c),16,()=>[0,1,2,3,4],e,(e,t,i)=>{let a=E(()=>r(o)===i);var s=he();let c;var l=O(s),f=O(l,!0);S(l),S(s),d(()=>{c=x(s,1,`step svelte-1sxgmm9`,null,c,{active:r(a)}),u(f,t)}),n(e,s)}),n(a,c)},$$slots:{default:!0}}),T(2),S(s),d(()=>u(h,r(o)||`-`)),n(a,s)}var ve=`{
+  "intro": [
+    {
+      "type": "text",
+      "value": "Everyone has an accent, even you!"
+    },
+    {
+      "type": "text",
+      "value": "Your speech is riddled with variations. For folks with a trained ear, it’s a clue into the community in which you grew up."
+    },
+    {
+      "type": "text",
+      "value": "Here are speakers who have variations associated with particular regions.  Can you guess where everyone is from?"
+    }
+  ],
   "levels": [
     {
       "pre": [
         {
           "type": "text",
           "value": "Let’s start with an easy one."
-        },
-        {
-          "type": "text",
-          "value": "Where do you think this speaker is from?"
         }
       ],
       "speaker": "Oh, I’m going up to the lake for the long weekend, don’t ya know.",
@@ -20,16 +30,53 @@ import{C as e,D as t,E as n,I as r,J as i,M as a,N as o,O as s,Q as c,S as l,T a
         "type": "state",
         "value": "Minnesota"
       },
+      "hints": [
+        "Listen to how they say <i>going</i> and <i>know</i>.",
+        "That vowel is an artifact of Scandinavian settlement.",
+        "Narrow the guess: Minnesota or Texas."
+      ],
       "post": [
         {
           "type": "text",
-          "value": "The biggest tell is the way they say the vowel in “boat.”"
+          "value": "The regional indicator is in the way they pronounce <strong>going</strong> and <strong>know</strong>."
         }
       ],
       "deepDive": [
         {
           "type": "text",
-          "value": "Tk deep dive"
+          "value": "Both of these words share a vowel, like the vowel in GOAT."
+        },
+        {
+          "type": "text",
+          "value": "See how you say it. Try saying <strong>“know”</strong> a few times slowly. Does your vowel have 1 sound, like the example on the left, or 2 sounds?"
+        },
+        {
+          "type": "text",
+          "value": "[1 sound vs. 2 sounds]"
+        },
+        {
+          "type": "text",
+          "value": "A vowel with 1 sound is called a <strong>monophthong</strong>. Your lips and tongue don’t move, and the vowel stays completely the same while you say it."
+        },
+        {
+          "type": "text",
+          "value": "[1 sound demos]"
+        },
+        {
+          "type": "text",
+          "value": "If the vowel contains 2 sounds, it’s called a <strong>diphthong</strong>."
+        },
+        {
+          "type": "text",
+          "value": "[2 sound demos]"
+        },
+        {
+          "type": "text",
+          "value": "A hallmark of the stereotypical Minnesota accent is that monophthongal GOAT vowel."
+        },
+        {
+          "type": "text",
+          "value": "And it’s no coincidence. Swedish and Norwegian both have lots of monophthongal vowels. The way English was spoken in those regions was established by those immigrants settling in the Upper Midwest in the 19th and 20th centuries. Linguists believe that this contributed to this region standing out as an exception in a sea of diphthongal GOAT pronunciation."
         }
       ]
     },
