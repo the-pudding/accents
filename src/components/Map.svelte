@@ -184,17 +184,14 @@
 		map?.remove();
 	});
 
-	// scrolls so the *bottom* of .actions lands at the top of the viewport,
-	// putting whatever comes next (the result) at the top of the page.
-	// scrollIntoView can't express this: block:"start" aligns the element's
-	// top edge, block:"end" aligns the viewport's bottom edge — neither is it.
-	async function scrollPastActions() {
+	async function scrollOnwards() {
 		// wait for Svelte to flush the DOM (new result/post content) before
 		// measuring, so we're not scrolling against a stale layout
 		await tick();
-		const actionsEl = document.querySelector(".actions");
-		if (!actionsEl) return;
-		const top = actionsEl.getBoundingClientRect().bottom + window.scrollY;
+		const teaseEl = document.querySelector(".tease");
+		if (!teaseEl) return;
+		const top =
+			teaseEl.getBoundingClientRect().bottom + window.scrollY - window.innerHeight;
 		window.scrollTo({ top, behavior: "smooth" });
 	}
 
@@ -209,7 +206,7 @@
 		setGuess(i, { ...selected, ...outcome });
 		onsubmit(selected);
 
-		scrollPastActions();
+		scrollOnwards();
 	}
 
 	function handleNoIdea() {
@@ -224,7 +221,7 @@
 		setGuess(i, { lat: null, lng: null, ...outcome });
 		onsubmit(null);
 
-		scrollPastActions();
+		scrollOnwards();
 	}
 </script>
 
