@@ -1,47 +1,90 @@
 {
+  "title": "The American Accent Quiz",
   "intro": [
     {
       "type": "text",
-      "value": "Everyone has an accent, even you!"
+      "value": "We’ve assembled 9 speakers who have unique regional pronunciations that indicate where they grew up."
     },
     {
       "type": "text",
-      "value": "Your speech is riddled with variations. For folks with a trained ear, it’s a clue into the community in which you grew up."
-    },
-    {
-      "type": "text",
-      "value": "Here are speakers who have variations associated with particular regions.  Can you guess where everyone is from?"
+      "value": "Can you guess where they’re from?"
     }
   ],
   "levels": [
     {
+      "id": "monophthongal-goat"
+    },
+    {
+      "id": "cot-caught",
       "pre": [
         {
           "type": "text",
-          "value": "Let’s start with an easy one."
+          "value": "This one is more subtle, so you’ll only need to select between two regions of the US."
         }
       ],
-      "speaker": "Oh, I’m going up to the lake for the long weekend, don’t ya know.",
-      "answer": {
-        "type": "state",
-        "value": "Minnesota"
-      },
-      "hints": [
-        "Listen to how they say <i>going</i> and <i>know</i>.",
-        "That vowel is an artifact of Scandinavian settlement.",
-        "Narrow the guess: Minnesota or Texas."
-      ],
+      "speaker": "His name is Don. Her name is Dawn.",
       "post": [
         {
           "type": "text",
-          "value": "The regional indicator is in the way they pronounce <strong>going</strong> and <strong>know</strong>."
+          "value": "That was Matt, 41 years-old, who spent his entire childhood in this region of the US."
+        }
+      ],
+      "answer": {
+        "type": "region",
+        "value": "Eastern US"
+      },
+      "hints": [
+        "Listen to the way they say Don vs. Dawn.",
+        "Out West, these vowels have collapsed into one sound, while much of the East keeps them distinct.",
+        "For this speaker, they’re actually subtly different."
+      ],
+      "explanation": [
+        {
+          "type": "text",
+          "value": "The clue is in the vowel sounds of <strong>Don</strong> and <strong>Dawn</strong>."
+        },
+        {
+          "type": "Speaker",
+          "value": {}
+        },
+        {
+          "type": "Expert",
+          "value": {
+            "id": "nicole",
+            "content": [
+              {
+                "type": "text",
+                "value": "Did this pronunciation of “Don” and “Dawn” sound familiar?"
+              },
+              {
+                "type": "text",
+                "value": "Many people say these two words identically."
+              }
+            ]
+          }
+        },
+        {
+          "type": "Expert",
+          "value": {
+            "id": "erik",
+            "content": [
+              {
+                "type": "text",
+                "value": "<span class=label>Indistinguishable!</span>"
+              },
+              {
+                "type": "text",
+                "value": "<button class=word>Don.</button> <button class=word>Dawn.</button>"
+              }
+            ]
+          }
         },
         {
           "type": "text",
-          "value": "This is known to linguists as the <strong>monophthongal GOAT vowel<strong>."
+          "value": "Let’s have Erik demonstrate this with other vowel pairs."
         }
       ],
-      "deepDive": [
+      "deep": [
         {
           "type": "text",
           "value": "Both of these words share a vowel, like the vowel in GOAT."
@@ -81,64 +124,25 @@
       ]
     },
     {
-      "pre": [
-        {
-          "type": "text",
-          "value": "Next one."
-        },
-        {
-          "type": "text",
-          "value": "Where do you think this speaker is from?"
-        }
-      ],
-      "speaker": "I don’t have the cot-caught merger!",
-      "answer": {
-        "type": "region",
-        "value": "Eastern US"
-      },
-      "post": [
-        {
-          "type": "text",
-          "value": "The biggest tell is the way they say cot and caught."
-        }
-      ],
-      "deepDive": [
-        {
-          "type": "text",
-          "value": "Tk deep dive"
-        }
-      ]
+      "id": "lamp"
     },
     {
-      "pre": [
-        {
-          "type": "text",
-          "value": "Next one."
-        },
-        {
-          "type": "text",
-          "value": "Where do you think this speaker is from?"
-        }
-      ],
-      "speaker": "SoCal is the best, bruh.",
-      "answer": {
-        "type": "city",
-        "value": "Los Angeles",
-        "lat": "34.0522",
-        "lng": "-118.2437"
-      },
-      "post": [
-        {
-          "type": "text",
-          "value": "The biggest tell is the way they say _."
-        }
-      ],
-      "deepDive": [
-        {
-          "type": "text",
-          "value": "Tk deep dive"
-        }
-      ]
+      "id": "non-rhodic"
+    },
+    {
+      "id": "trap-raising"
+    },
+    {
+      "id": "pin-pen"
+    },
+    {
+      "id": "northern-cities-shift"
+    },
+    {
+      "id": "reprise-goat"
+    },
+    {
+      "id": "socal-multiethnolect"
     }
   ]
 }

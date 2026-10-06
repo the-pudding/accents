@@ -26,9 +26,9 @@
 	let L;
 	let roundLayer;
 	let marker;
-	let selected = $state(null);
+	let selected = $state(null); // only if they have made a selection
+	let result = $state(null); // populates even if guess is "no idea"
 	let locked = $state(false);
-	let result = $state(null);
 	let hintIndex = $state(-1);
 
 	function resetRound() {
@@ -191,7 +191,9 @@
 		const teaseEl = document.querySelector(".tease");
 		if (!teaseEl) return;
 		const top =
-			teaseEl.getBoundingClientRect().bottom + window.scrollY - window.innerHeight;
+			teaseEl.getBoundingClientRect().bottom +
+			window.scrollY -
+			window.innerHeight;
 		window.scrollTo({ top, behavior: "smooth" });
 	}
 
@@ -225,11 +227,29 @@
 	}
 </script>
 
-<p>Choose a location on the map:</p>
+{#if result}
+	<div class="result">
+		{#if result.correct}
+			Correct! It's <strong>{result.answer}</strong>.
+		{:else if result.miles && result.miles <= CLOSE_THRESHOLD}
+			Close! They're from <strong>{result.answer}</strong>, you were {Math.round(
+				result.miles
+			)} miles away.
+		{:else if result.miles}
+			Nice try! They're from <strong>{result.answer}</strong>, you were {Math.round(
+				result.miles
+			)} miles away.
+		{:else}
+			The answer was <strong>{result.answer}</strong>.
+		{/if}
+	</div>
+{:else}
+	<strong>Choose a location on the map:</strong>
+{/if}
 
 <div class="map" bind:this={mapEl}></div>
 
-<div class="hints">
+<div class="hints" class:visible={!result}>
 	<span>Get a hint!</span>
 
 	{#each hints as { value }, i}
@@ -245,36 +265,18 @@
 	{/if}
 </div>
 
-<div class="actions">
+<div class="actions" class:visible={!result}>
 	<Button
 		style={"background: var(--color-fg); color: var(--color-bg)"}
 		disabled={locked}
 		onclick={handleNoIdea}>I truly have no idea</Button
 	>
 	<Button
-		style={"background: #02D1FF; color: var(--color-bg)"}
+		style={"background: var(--color-accent); color: var(--color-bg); text-transform: uppercase"}
 		disabled={locked || !selected}
 		onclick={handleSubmit}>Submit</Button
 	>
 </div>
-
-{#if result}
-	<p class="result">
-		{#if result.correct}
-			Correct! It's <strong>{result.answer}</strong>.
-		{:else if result.miles && result.miles <= CLOSE_THRESHOLD}
-			Close! They're from <strong>{result.answer}</strong>, you were {Math.round(
-				result.miles
-			)} miles away.
-		{:else if result.miles}
-			Nice try! They're from <strong>{result.answer}</strong>, you were {Math.round(
-				result.miles
-			)} miles away.
-		{:else}
-			The answer was <strong>{result.answer}</strong>.
-		{/if}
-	</p>
-{/if}
 
 <style>
 	.map {
@@ -282,16 +284,23 @@
 		height: 400px;
 		border-radius: var(--radius-md);
 		z-index: var(--z-base);
+		margin-top: 0.5rem;
 	}
 
 	.actions {
 		display: flex;
 		gap: 0.5rem;
 		margin-top: 1rem;
+		visibility: hidden;
+	}
+
+	.visible {
+		visibility: visible;
 	}
 
 	.result {
 		margin-top: 1rem;
+		text-align: center;
 	}
 
 	:global(.guess-arrow .arrow) {
@@ -300,6 +309,10 @@
 		border-left: 7px solid transparent;
 		border-right: 7px solid transparent;
 		border-bottom: 14px solid var(--color-primary);
+	}
+
+	.hints {
+		visibility: hidden;
 	}
 
 	button.hint {

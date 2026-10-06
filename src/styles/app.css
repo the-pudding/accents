@@ -29,6 +29,8 @@
 	
 	--color-bg: #111111;
 	--color-fg: var(--color-white);
+	--color-accent: #FFFF00;
+
 	--color-fg-light: var(--color-gray-500);
 	--color-primary: var(--color-black);
 	--color-link: var(--color-black);
@@ -38,7 +40,7 @@
 	--color-selection: var(--color-gray-300);
 	--color-border: var(--color-gray-300);
 	--color-button-fg-primary: var(--color-white);
-	--color-button-bg-primary: var(--color-gray-900);
+	--color-button-bg-primary: var(--color-gray-600);
 	--color-button-fg-secondary: var(--color-white);
 	--color-button-bg-secondary: var(--color-gray-500);
 	--color-input-bg: var(--color-gray-50);
@@ -84,6 +86,33 @@ h5 {
 
 h6 {
 	font-size: var(--20px, 20px);
+}
+
+p {
+	font-family: var(--font-serif);
+	font-size: var(--18px, 18px);
+}
+
+.label {
+	font-family: var(--font-serif);
+	color: var(--color-gray-200);
+	text-transform: uppercase;
+	font-size: var(--14px);
+}
+
+.word {
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-size: var(--32px);
+	background: var(--color-button-bg-primary);
+	border-radius: 6px;
+	padding: 0 0.5rem 0 0.25rem;
+	line-height: normal;
+}
+
+.word.highlighted {
+	background: var(--color-accent);
+	color: var(--color-bg);
 }
 
 svg {

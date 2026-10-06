@@ -1,33 +1,66 @@
 <script>
 	import playSvg from "$svg/play.svg";
 
-	let { speaker } = $props();
+	let { speaker, i, total, played = $bindable() } = $props();
 
 	let audioEl = $state();
 	let currentTime = $state(0);
-
-	const words = [
-		0.1, 0.5, 0.9, 1.3, 1.4, 1.45, 1.5, 1.8, 2, 2.2, 2.5, 2.75, 3.1, 3.25
-	];
+	let speed = $state("normal");
 </script>
 
 <div class="speaker">
-	<button class="play" onclick={() => audioEl.play()}>
-		{@html playSvg}
-	</button>
-	<audio bind:this={audioEl} bind:currentTime src="assets/sound/minnesota.m4a"
+	<audio
+		bind:this={audioEl}
+		bind:currentTime
+		src="assets/sound/minnesota.m4a"
+		onended={() => (played = true)}
 	></audio>
 
-	<div class="text">
+	<div class="row" style="width: 100%; justify-content: space-between">
+		<div class="col">
+			<div class="label">Accent #{i + 1} of {total}</div>
+
+			<div class="row">
+				<button class="play" onclick={() => audioEl.play()}>
+					{@html playSvg}
+				</button>
+
+				<div>Play Audio</div>
+			</div>
+		</div>
+
+		<div class="col">
+			<div class="label">Speed</div>
+			<div class="row buttons">
+				<button
+					class="speed"
+					class:selected={speed === "normal"}
+					onclick={() => (speed = "normal")}>Normal</button
+				>
+				<button
+					class="speed"
+					class:selected={speed === "slow"}
+					onclick={() => (speed = "slow")}>Slow</button
+				>
+			</div>
+		</div>
+	</div>
+
+	<div class="phrase">
 		{#each speaker.split(" ") as word, index}
-			<span class="word" class:visible={currentTime >= words[index]}
-				>{word + " "}</span
-			>
+			<span class="word">{word + " "}</span>
 		{/each}
 	</div>
 </div>
 
 <style>
+	.speaker {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		margin: 3rem 0;
+	}
+
 	button.play {
 		display: flex;
 		align-items: center;
@@ -43,24 +76,37 @@
 		width: 100%;
 	}
 
-	.speaker {
+	.col {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.row {
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		margin-top: 0.5rem;
-		margin-bottom: 2rem;
 	}
 
-	.text {
-		font-style: italic;
-		font-size: 2rem;
+	.buttons {
+		display: flex;
+		gap: 1rem;
 	}
 
-	.word {
-		opacity: 0.1;
+	button.speed {
+		margin: 0.5rem 0;
+		padding: 0;
+		background: none;
+		color: var(--color-gray-400);
 	}
 
-	.word.visible {
-		opacity: 1;
+	button.speed.selected {
+		color: var(--color-fg);
+	}
+
+	.phrase {
+		display: flex;
+		gap: 6px;
+		flex-wrap: wrap;
 	}
 </style>
