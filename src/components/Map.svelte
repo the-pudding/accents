@@ -188,7 +188,7 @@
 		// wait for Svelte to flush the DOM (new result/post content) before
 		// measuring, so we're not scrolling against a stale layout
 		await tick();
-		const teaseEl = document.querySelector(".tease");
+		const teaseEl = document.querySelector(".explanation");
 		if (!teaseEl) return;
 		const top =
 			teaseEl.getBoundingClientRect().bottom +

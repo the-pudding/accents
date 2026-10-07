@@ -82,8 +82,48 @@
         {
           "type": "text",
           "value": "Let’s have Erik demonstrate this with other vowel pairs."
+        },
+        {
+          "type": "Comparison",
+          "value": {
+            "content": [
+              {
+                "type": "Buttons",
+                "value": {
+                  "words": [
+                    "Caught",
+                    "Cot"
+                  ]
+                }
+              },
+              {
+                "type": "Buttons",
+                "value": {
+                  "words": [
+                    "Stock",
+                    "Stalk"
+                  ]
+                }
+              },
+              {
+                "type": "text",
+                "value": "Here’s another example with the phrase “hot dog”."
+              }
+            ]
+          }
         }
       ],
+      "tease": [
+        {
+          "type": "text",
+          "value": "The US has several regional and demographic divides when it comes to pronouncing the vowels in lot and thought (so everyone has an accent!)."
+        },
+        {
+          "type": "text",
+          "value": "Linguists call this the <strong>Cot-Caught merger</strong>."
+        }
+      ],
+      "scroll": "<strong>Scroll down</strong> for a linguistics breakdown of the cot-caught merger",
       "deep": [
         {
           "type": "text",

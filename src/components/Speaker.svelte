@@ -67,6 +67,7 @@
 		gap: 1rem;
 		text-transform: uppercase;
 		white-space: nowrap;
+		background: none;
 		padding: 0;
 		margin: 0.5rem 0;
 	}
