@@ -4,7 +4,7 @@
 
 <div class="expert" class:flipped={id === "nicole"}>
 	<div class="person">
-		<img src={`/assets/img/person.png`} />
+		<img alt="cartoon person" src={`assets/img/person.png`} />
 		<div class="label">{id === "erik" ? "erik" : "dr. holiday"}</div>
 	</div>
 
