@@ -12,10 +12,10 @@
   ],
   "levels": [
     {
-      "id": "monophthongal-goat"
+      "id": "1-monophthongal-goat"
     },
     {
-      "id": "cot-caught",
+      "id": "2-cot-caught",
       "pre": [
         {
           "type": "text",
@@ -74,7 +74,7 @@
               },
               {
                 "type": "text",
-                "value": "<button class=word>Don.</button> <button class=word>Dawn.</button>"
+                "value": "<button class=word data-sound-id=don-merged>Don.</button> <button class=word data-sound-id=dawn-merged>Dawn.</button>"
               }
             ]
           }
@@ -164,25 +164,25 @@
       ]
     },
     {
-      "id": "lamp"
+      "id": "3-lamp"
     },
     {
-      "id": "non-rhodic"
+      "id": "4-non-rhodic"
     },
     {
-      "id": "trap-raising"
+      "id": "5-trap-raising"
     },
     {
-      "id": "pin-pen"
+      "id": "6-pin-pen"
     },
     {
-      "id": "northern-cities-shift"
+      "id": "7-northern-cities-shift"
     },
     {
-      "id": "reprise-goat"
+      "id": "8-reprise-goat"
     },
     {
-      "id": "socal-multiethnolect"
+      "id": "9-socal-multiethnolect"
     }
   ]
 }

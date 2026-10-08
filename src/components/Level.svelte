@@ -44,7 +44,7 @@
 	{/each}
 </div>
 
-<Speaker {speaker} {i} {total} bind:played />
+<Speaker {id} {speaker} {i} {total} bind:played />
 
 {#if post}
 	<div class="post">
@@ -61,7 +61,7 @@
 		{#each explanation as { type, value }}
 			{@const C = components[type]}
 			{#if type === "Speaker"}
-				<Speaker {speaker} {i} {total} {...value} />
+				<Speaker {id} {speaker} {i} {total} {...value} />
 			{:else if C}
 				<C {...value} />
 			{:else if type === "text"}

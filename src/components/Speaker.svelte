@@ -1,18 +1,22 @@
 <script>
 	import playSvg from "$svg/play.svg";
 
-	let { speaker, i, total, played = $bindable() } = $props();
+	let { id, speaker, i, total, played = $bindable() } = $props();
 
 	let audioEl = $state();
 	let currentTime = $state(0);
 	let speed = $state("normal");
+	let playbackRate = $derived(speed === "normal" ? 1 : 0.5);
+
+	const timing = [0.2, 0.4, 0.6, 0.8, 1.8, 2, 2.2, 2.4];
 </script>
 
 <div class="speaker">
 	<audio
 		bind:this={audioEl}
 		bind:currentTime
-		src="assets/sound/minnesota.m4a"
+		bind:playbackRate
+		src={`assets/sound/${id}.m4a`}
 		onended={() => (played = true)}
 	></audio>
 
@@ -48,7 +52,9 @@
 
 	<div class="phrase">
 		{#each speaker.split(" ") as word, index}
-			<span class="word">{word + " "}</span>
+			<span class="word" class:highlighted={currentTime >= timing[index]}
+				>{word + " "}</span
+			>
 		{/each}
 	</div>
 </div>
@@ -109,5 +115,10 @@
 		display: flex;
 		gap: 6px;
 		flex-wrap: wrap;
+	}
+
+	.word.highlighted {
+		background: var(--color-accent);
+		color: var(--color-bg);
 	}
 </style>
